@@ -839,31 +839,37 @@
 							</div>
 							<div class="col-md-7 col-md-push-1">
 								<div class="row">
-									<div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
-										data-animate-effect="fadeInRight">
-										<form action="">
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Name">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Email">
-											</div>
-											<div class="form-group">
-												<input type="text" class="form-control" placeholder="Subject">
-											</div>
-											<div class="form-group">
-												<textarea name="" id="message" cols="30" rows="7" class="form-control"
-													placeholder="Message"></textarea>
-											</div>
-											<div class="form-group">
-												<input type="submit" class="btn btn-primary btn-send-message"
-													value="Send Message">
-											</div>
-										</form>
-									</div>
-
+								  <div class="col-md-10 col-md-offset-1 col-md-pull-1 animate-box"
+									data-animate-effect="fadeInRight">
+							  
+									<form id="contact-form">
+									  <div class="form-group">
+										<input type="text" id="name" class="form-control" placeholder="Name" required>
+									  </div>
+							  
+									  <div class="form-group">
+										<input type="email" id="email" class="form-control" placeholder="Email" required>
+									  </div>
+							  
+									  <div class="form-group">
+										<input type="text" id="subject" class="form-control" placeholder="Subject">
+									  </div>
+							  
+									  <div class="form-group">
+										<textarea id="message" cols="30" rows="7" class="form-control"
+										  placeholder="Message" required></textarea>
+									  </div>
+							  
+									  <div class="form-group">
+										<input type="submit" class="btn btn-primary btn-send-message"
+										  value="Send Message">
+									  </div>
+									</form>
+							  
+								  </div>
 								</div>
-							</div>
+							  </div>
+							  
 						</div>
 					</div>
 				</section>
@@ -892,5 +898,36 @@
 	<script src="js/main.js"></script>
 
 </body>
-
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script> -->
+<script>
+	// Initialize EmailJS
+	(function () {
+	  emailjs.init("uqY4uATXlFNIc1lPu"); // from EmailJS dashboard
+	})();
+  
+	// Handle form submit
+	document.getElementById("contact-form").addEventListener("submit", function (e) {
+	  e.preventDefault(); // stop page reload
+  
+	  emailjs.send("service_kyno3zc", "template_sn6zyfc", {
+		name: document.getElementById("name").value,
+		email: document.getElementById("email").value,
+		subject: document.getElementById("subject").value,
+		message: document.getElementById("message").vsalue
+	  })
+	  .then(function () {
+		alert("Message sent successfully!");
+		document.getElementById("contact-form").reset();
+	  })
+	  .catch(function (error) {
+		alert("Failed to send message");
+		console.error(error);
+	  });
+	});
+  </script>
+  
 </html>
