@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Project Details | Kunal Sapate</title>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700">
+	<style>
+		body { background: #f7f7f7; color: #333; font-family: "Quicksand", Arial, sans-serif; }
+		.project-detail { max-width: 900px; margin: 0 auto; padding: 70px 25px; }
+		.project-detail a { color: #2c98f0; }
+		.project-detail h1 { color: #222; font-size: 38px; margin-bottom: 10px; }
+		.project-detail h2 { color: #222; font-size: 22px; margin-top: 38px; }
+		.project-detail .eyebrow { color: #2c98f0; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+		.project-detail .lead { color: #666; font-size: 17px; line-height: 1.7; }
+		.project-detail li, .project-detail p { font-size: 15px; line-height: 1.8; }
+		.project-detail .stack { background: #fff; border-left: 4px solid #2c98f0; padding: 18px 22px; }
+		.back-link { display: inline-block; margin-bottom: 45px; }
+	</style>
+</head>
+<body>
+	<main class="project-detail">
+		<a class="back-link" href="index.html#work">← Back to projects</a>
+		<p id="project-number" class="eyebrow"></p>
+		<h1 id="project-title"></h1>
+		<p id="project-intro" class="lead"></p>
+		<h2>Project Highlights</h2>
+		<ul id="project-highlights"></ul>
+		<h2>Technology Stack</h2>
+		<p id="project-stack" class="stack"></p>
+	</main>
+	<script>
+		const projects = {
+			happyLab: {
+				number: "Project 01",
+				title: "Happy Lab",
+				intro: "A modular learning and counseling platform with learner-facing experiences, operational workflows, payments, and secure video counseling.",
+				highlights: ["Developed and shipped the Program Page, Search Bar, Wishlist Page, Sidebar UI, Course Page, and Home Page used by learners daily.", "Built backend modules for users, counsellors, companies, courses, assessments, packages, bookings, sessions, payments, and support requests.", "Implemented stock movement workflows, maker-checker approvals, series validation, inventory tracking, and audit functionality.", "Integrated Razorpay and Cashfree payments with order creation, tracking, webhooks, refunds, status handling, and package purchases.", "Integrated Jitsi for secure video counseling sessions using JWT-protected meeting links and collaborated on zero-regression REST API integration."],
+				stack: "React · REST APIs · Laravel · JavaScript · Razorpay · Cashfree · Jitsi · JWT"
+			},
+			tradebnbPresale: {
+				number: "Project 02",
+				title: "TradeBNB Presale",
+				intro: "A Web3 token presale platform built for secure wallet payments, configurable token sales, and community engagement.",
+				highlights: ["Built the token presale interface using React and Vite with wallet connectivity through Wagmi and RainbowKit.", "Implemented blockchain network switching for a smoother multi-network payment experience.", "Developed multi-stage presale smart contracts with configurable pricing, purchase limits, treasury management, and pause controls.", "Added referral rewards and leaderboard features to support user engagement and community growth."],
+				stack: "React · Vite · Wagmi · RainbowKit · Solidity · Web3 · Smart Contracts"
+			},
+			tradebnbAcademy: {
+				number: "Project 03",
+				title: "TradeBNB Academy",
+				intro: "A full-stack online learning platform for course discovery, enrollment, learning progress, assessments, payments, and certificates.",
+				highlights: ["Implemented course discovery, enrollment, progress tracking, course resources, assessments, feedback, and completion certificates.", "Built secure authentication with JWT, Google OAuth, OTP verification, and protected routes.", "Integrated Stripe payments with promo-code validation, payment tracking, invoice generation, and downloadable PDF invoices.", "Created a Laravel Filament admin panel for courses, users, enrollments, payments, promo codes, feedback, and support requests.", "Built analytics dashboards for sales, revenue, enrollments, completion, and scholarship rewards with CSV/report exports."],
+				stack: "Next.js · React · TypeScript · NestJS · GraphQL · PostgreSQL · JWT · Google OAuth · OTP · Stripe · Laravel Filament"
+			},
+			axiomTrade: {
+				number: "Project 04",
+				title: "Axiom Trade",
+				intro: "A trading-focused web experience developed with a responsive interface and a clear, product-oriented user flow.",
+				highlights: ["Built a responsive interface for presenting the trading product and its key user actions.", "Focused on reusable UI sections, visual hierarchy, responsive layouts, and a smooth user experience."],
+				stack: "React · JavaScript · Responsive UI · Web Development"
+			},
+			stoik: {
+				number: "Project 05 · Private Client Project",
+				title: "Stoik Sports Academy Admin Platform",
+				intro: "A role-based platform for managing sports academy operations across administrators, head coaches, coaches, and business development teams.",
+				highlights: ["Centralized athlete profiles, coach scheduling, batches, attendance, training programs, injuries, progress reports, packages, payments, promo codes, and locations.", "Built fitness metrics, individual development plans, video analysis, rehab programs, and performance workflows.", "Added operational dashboards for revenue, attendance, retention, coach utilization, renewals, injuries, enrollment, and package health.", "Implemented queued ZIP/CSV imports with video handling, failure logging, and database notifications."],
+				stack: "Laravel 12 · PHP · Filament 5 · Livewire · Tailwind CSS · MySQL/PostgreSQL · Sanctum · Queues · Vite · Spatie · AWS S3/MinIO"
+			},
+			mindzy: {
+				number: "Project 06 · Private Client Project",
+				title: "Mindzy – Appointment Scheduling & Booking Platform",
+				intro: "A responsive scheduling platform for managing calendars, bookings, services, packages, working hours, payments, and customer interactions.",
+				highlights: ["Built secure sign-up, sign-in, password recovery, and protected route flows.", "Created FullCalendar booking visualization with event details, status styling, rescheduling, search, and filters.", "Integrated GraphQL APIs through Apollo Client for bookings, services, users, groups, payments, coupons, and integrations.", "Developed admin tools for members, personalization, settings, earnings, withdrawals, and coupons."],
+				stack: "Next.js · React · TypeScript · GraphQL · Apollo Client · Tailwind CSS · FullCalendar · Radix UI"
+			},
+			hrms: {
+				number: "Project 07 · Private Client Project",
+				title: "Multi-Tenant Human Resource Management System",
+				intro: "A comprehensive HRMS platform managing the complete employee lifecycle from recruitment and onboarding through payroll, performance, and offboarding.",
+				highlights: ["Implemented multi-tenant architecture, JWT authentication, role-based access control, company-level isolation, and secure APIs.", "Built salary structures, statutory deductions, tax calculations, loans, reimbursements, bonuses, payslips, and accounting reports.", "Added workflow automation, approvals, biometric attendance sync, document generation, OTP e-signatures, and employee self-service.", "Added dashboards, background jobs, scheduled reports, audit logs, PDF/Excel exports, and cloud/device integrations."],
+				stack: "Laravel 12 · PHP 8.3+ · MySQL/PostgreSQL · Vue 3 · Vite · Ant Design Vue · Pinia · JWT · Redis · Docker · AWS S3 · PHPUnit"
+			},
+			concord: {
+				number: "Project 08 · Private Client Project",
+				title: "Concord CRM – Sales & Invoice Management Platform",
+				intro: "A modular CRM platform for managing leads, contacts, deals, pipelines, sales activities, bookings, meetings, invoices, and customer interactions.",
+				highlights: ["Implemented secure Laravel Sanctum APIs for lead management, integrations, and third-party data exchange.", "Built large-scale lead import/export workflows with duplicate handling, owner preservation, and background processing.", "Developed invoices, partial payments, Stripe/PayPal/Razorpay integrations, PDF generation, email confirmations, and payment workflows.", "Added team-level permissions, workflow automation, notifications, calendars, email, telephony, web forms, and external services."],
+				stack: "PHP · Laravel 12 · Vue.js 3 · JavaScript · MySQL · REST APIs · Sanctum · Vite · Tailwind CSS · Stripe · PayPal · Razorpay · AWS S3 · Google APIs"
+			}
+		};
+		const queryProject = new URLSearchParams(window.location.search).get("project");
+		const hashProject = window.location.hash.replace("#", "");
+		const key = hashProject || queryProject || "stoik";
+		const project = projects[key] || projects.stoik;
+		document.title = project.title + " | Kunal Sapate";
+		document.getElementById("project-number").textContent = project.number;
+		document.getElementById("project-title").textContent = project.title;
+		document.getElementById("project-intro").textContent = project.intro;
+		document.getElementById("project-stack").textContent = project.stack;
+		document.getElementById("project-highlights").innerHTML = project.highlights.map(item => `<li>${item}</li>`).join("");
+	</script>
+</body>
+</html>
